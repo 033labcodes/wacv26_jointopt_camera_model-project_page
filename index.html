@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- ソーシャル共有用メタタグ。公開前に内容を確認してください -->
+  <meta name="description" content="Joint Optimization of Camera Model and Deep Neural Network for Image Recognition (WACV 2026) - jointly optimizing a fully differentiable camera model (image sensor + ISP) together with a DNN for image classification and object detection.">
+  <meta property="og:title" content="Joint Optimization of Camera Model and Deep Neural Network for Image Recognition"/>
+  <meta property="og:description" content="WACV 2026 paper. Joint optimization of a fully differentiable camera model and a deep neural network for image classification and object detection."/>
+  <meta property="og:url" content="https://033labcodes.github.io/wacv26_jointopt_camera_model-project_page/"/>
+
+  <meta name="icon-pen" content="static/images/favicon.svg">
+  <!-- バナー画像。推奨サイズ 1200x630 -->
+  <meta property="og:image" content="static/images/figure3.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="Joint Optimization of Camera Model and Deep Neural Network for Image Recognition">
+  <meta name="twitter:description" content="WACV 2026 paper. Joint optimization of a fully differentiable camera model and a deep neural network for image classification and object detection.">
+  <!-- バナー画像。推奨サイズ 1200x600 -->
+  <meta name="twitter:image" content="static/images/figure3.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- 論文インデックス用キーワード -->
+  <meta name="keywords" content="camera model optimization, joint optimization, differentiable ISP, image signal processing, camera spectral sensitivity, deep neural network, image classification, object detection, WACV 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Joint Optimization of Camera Model and Deep Neural Network for Image Recognition</title>
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Joint Optimization of Camera Model <br> and Deep Neural Network for Image Recognition</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <span style="color:#4A4A4A">Youta Noboru</span><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://033lab.org/" target="_blank">Yuko Ozasa</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="http://www.vip.sc.e.titech.ac.jp/mtanaka/" target="_blank">Masayuki Tanaka</a><sup>2</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Tokyo Denki University, <sup>2</sup>Institute of Science Tokyo<br>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2026</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- Paper PDF link -->
+                      <span class="link-block">
+                        <a href="https://openaccess.thecvf.com/content/WACV2026/papers/Noboru_Joint_Optimization_of_Camera_Model_and_Deep_Neural_Network_for_WACV_2026_paper.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/033labcodes/wacv26_jointopt_camera_model" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/figure3.png" alt="Method overview"/>
+      <h2 class="subtitle has-text-centered">
+        Visual comparison of images generated by different camera models.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we propose joint optimization of a camera model and a deep neural network (DNN) for image classification and object detection tasks. The camera model consists of an image sensor model parameterized by the camera spectral sensitivity (CSS) and an image signal processing (ISP) model. We assume the camera model is composed of a three-sensor imager without a demosaicing process and an ISP with simple color correction and gamma correction. The DNNs then classify or detect objects. A key contribution of this paper is the joint optimization of not only the ISP model and DNN but also the image sensor model. For stable joint optimization, we have implemented a fully differentiable camera model. Therefore, we can jointly optimize the camera model and the DNN. Experimental comparisons with the flower and leaf datasets show that our approach outperforms existing approaches. Furthermore, we demonstrate that our approach is also effective for the object detection task.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/figure1.png" alt="Figure 1"/>
+        <h2 class="subtitle has-text-centered">
+          Three optimization approaches for image classification.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/figure2.png" alt="Figure 2"/>
+        <h2 class="subtitle has-text-centered">
+          Overview of the proposed joint optimization approach. A hyperspectral (HS) image is input into a camera model comprising a learnable camera spectral sensitivity (CSS) and an image signal processing (ISP) module. The ISP includes a color correction matrix (CCM) and a gamma correction component that incorporates our gradient constraint method. The resulting image is then passed to a classification network. The entire system is trained jointly via backpropagation of the task loss.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/figure3.png" alt="Figure 3"/>
+        <h2 class="subtitle has-text-centered">
+          Visual comparison of images generated by different camera models.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/table1.png" alt="Table 1"/>
+        <h2 class="subtitle has-text-centered">
+          Classification accuracy on the leaf dataset across different camera models and optimization methods, where values represent average ± standard deviation. Bold and underlined values indicate the best and second-best results, respectively.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/table2.png" alt="Table 2" style="display: block; margin: 0 auto; max-width: 60%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          Ablation study on the contribution of optimizing the CSS, the CCM, the gamma correction, and the network model of ResNet-18 with the leaf dataset. Bold and underlined values indicate the best and second-best results, respectively.
+        </h2>
+     </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@InProceedings{Noboru_2026_WACV,
+    author    = {Noboru, Youta and Ozasa, Yuko and Tanaka, Masayuki},
+    title     = {Joint Optimization of Camera Model and Deep Neural Network for Image Recognition},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {March},
+    year      = {2026},
+    pages     = {7626-7635}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
